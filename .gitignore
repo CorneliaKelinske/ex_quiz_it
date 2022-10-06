@@ -32,3 +32,4 @@ ex_quiz_it-*.tar
 npm-debug.log
 /assets/node_modules/
 
+.elixir_ls
