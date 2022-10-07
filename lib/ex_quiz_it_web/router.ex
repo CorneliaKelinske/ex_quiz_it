@@ -14,11 +14,6 @@ defmodule ExQuizItWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ExQuizItWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
-  end
 
   # Other scopes may use custom stacks.
   # scope "/api", ExQuizItWeb do
@@ -53,4 +48,11 @@ defmodule ExQuizItWeb.Router do
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
+
+  scope "/", ExQuizItWeb do
+    pipe_through :browser
+    live "/", QuizLive
+  end
+
+
 end
