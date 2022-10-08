@@ -4,7 +4,8 @@ defmodule ExQuizItWeb.QuizLive do
   @questions ["what does the fox say?", "what did the confident pickle say?", "are we there yet?"]
 
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, message: "Make a guess:", questions: @questions, answer: "")}
+    question = Enum.random(@questions)
+    {:ok, assign(socket, message: "Make a guess:", question: question, answer: "")}
   end
 
   def render(assigns) do
@@ -14,7 +15,7 @@ defmodule ExQuizItWeb.QuizLive do
       <%= @message %>
     </h2>
     <h2>
-    <%= Enum.random(@questions) %>
+    <%= @question %>
     </h2>
     <h2>
     <%= @answer %>
@@ -30,6 +31,7 @@ defmodule ExQuizItWeb.QuizLive do
   end
 
   def handle_event("next", _value, socket) do
-    {:noreply, assign(socket, questions: @questions, answer: "")}
+    question = Enum.random(@questions)
+    {:noreply, assign(socket, question: question, answer: "")}
   end
 end
