@@ -17,7 +17,7 @@ env = %{"MIX_ENV" => "test"}
   tools: [
     {:credo, command: "mix credo --strict", env: env},
     {:formatter, command: "mix format"},
-    {:dialyzer, command: "mix dialyzer", env: env},
+    {:dialyzer, command: "mix dialyzer", env: env}
     ## curated tools may be disabled (e.g. the check for compilation warnings)
     # {:compiler, false},
 
