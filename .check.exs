@@ -1,3 +1,5 @@
+env = %{"MIX_ENV" => "test"}
+
 [
   ## don't run tools concurrently
   # parallel: false,
@@ -13,8 +15,9 @@
 
   ## list of tools (see `mix check` docs for a list of default curated tools)
   tools: [
-    {:credo, command: "mix credo --strict"},
-    {:formatter, command: "mix format"}
+    {:credo, command: "mix credo --strict", env: env},
+    {:formatter, command: "mix format"},
+    {:dialyzer, command: "mix dialyzer", env: env},
     ## curated tools may be disabled (e.g. the check for compilation warnings)
     # {:compiler, false},
 
