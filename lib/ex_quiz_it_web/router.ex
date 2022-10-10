@@ -14,7 +14,6 @@ defmodule ExQuizItWeb.Router do
     plug :accepts, ["json"]
   end
 
-
   # Other scopes may use custom stacks.
   # scope "/api", ExQuizItWeb do
   #   pipe_through :api
@@ -53,6 +52,4 @@ defmodule ExQuizItWeb.Router do
     pipe_through :browser
     live "/", QuizLive
   end
-
-
 end
