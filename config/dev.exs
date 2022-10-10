@@ -26,7 +26,8 @@ config :ex_quiz_it, ExQuizItWeb.Endpoint,
   secret_key_base: "AgjCg/+pU0g5YRaQ2GJ6DEyp9Fh8UcPh2repwzKrNMazBJT2MRD70kipGkEmZ6X8",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support
