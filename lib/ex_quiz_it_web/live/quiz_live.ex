@@ -13,24 +13,6 @@ defmodule ExQuizItWeb.QuizLive do
   end
 
   @impl Phoenix.LiveView
-  def render(assigns) do
-    ~H"""
-
-    <h2>
-      <%= @message %>
-    </h2>
-    <h2>
-    <%= @question %>
-    </h2>
-    <h2>
-    <%= @answer %>
-    </h2>
-    <button phx-click="guess">Show answer</button>
-    <button phx-click="next"> Next question</button>
-    """
-  end
-
-  @impl Phoenix.LiveView
   def handle_event("guess", _value, socket) do
     answer = "No one knows"
     {:noreply, assign(socket, answer: answer)}
