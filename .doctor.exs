@@ -7,7 +7,9 @@
     ExQuizItWeb.Telemetry,
     ExQuizItWeb.ErrorView,
     ExQuizItWeb.ErrorHelpers,
-    ExQuizIt.DataCase
+    ExQuizIt.DataCase,
+    ExQuizItWeb.QuizLive,
+    ExQuizIt.Questions.Enums
   ],
   ignore_paths: [],
   min_module_doc_coverage: 100,

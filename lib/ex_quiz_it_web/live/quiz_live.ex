@@ -3,23 +3,37 @@ defmodule ExQuizItWeb.QuizLive do
   Main LiveView for the quiz
   """
   use Phoenix.LiveView, layout: {ExQuizItWeb.LayoutView, "live.html"}
+  alias ExQuizIt.Questions.Enums
 
-  @questions ["what does the fox say?", "what did the confident pickle say?", "are we there yet?"]
+  @questions Enums.q_and_a()
 
   @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
-    question = Enum.random(@questions)
-    {:ok, assign(socket, message: "Make a guess:", question: question, answer: "")}
+    q_and_a = Enum.random(@questions)
+
+    {:ok,
+     assign(socket,
+       message: "Make a guess:",
+       question: Map.fetch!(q_and_a, "question"),
+       answer: Map.fetch!(q_and_a, "answer"),
+       display_answer: false
+     )}
   end
 
   @impl Phoenix.LiveView
   def handle_event("guess", _value, socket) do
-    answer = "No one knows"
-    {:noreply, assign(socket, answer: answer)}
+    {:noreply, assign(socket, display_answer: true)}
   end
 
   def handle_event("next", _value, socket) do
-    question = Enum.random(@questions)
-    {:noreply, assign(socket, question: question, answer: "")}
+    q_and_a = Enum.random(@questions)
+
+    {:noreply,
+     assign(socket,
+       message: "Make a guess:",
+       question: Map.fetch!(q_and_a, "question"),
+       answer: Map.fetch!(q_and_a, "answer"),
+       display_answer: false
+     )}
   end
 end
