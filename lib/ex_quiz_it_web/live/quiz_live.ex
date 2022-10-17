@@ -13,7 +13,7 @@ defmodule ExQuizItWeb.QuizLive do
 
     {:ok,
      assign(socket,
-       message: "Make a guess:",
+       message: "What does this function do? Make a guess!",
        question: Map.fetch!(q_and_a, "question"),
        answer: Map.fetch!(q_and_a, "answer"),
        display_answer: false
