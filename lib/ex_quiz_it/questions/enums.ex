@@ -1,7 +1,7 @@
 defmodule ExQuizIt.Questions.Enums do
   @moduledoc false
-  def q_and_a do
-    {:docs_v1, _, :elixir, _, _, _, functions} = Code.fetch_docs(Enum)
+  def q_and_a(module \\ Enum) do
+    {:docs_v1, _, :elixir, _, _, _, functions} = Code.fetch_docs(module)
 
     functions
     |> Stream.map(&doc_parser/1)

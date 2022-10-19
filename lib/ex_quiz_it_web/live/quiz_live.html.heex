@@ -3,6 +3,15 @@
     This is EX_QUIZ_IT!
   </h1>
 
+  <form phx-change="select">
+    <select name="module">
+      <option value={@module}><%= @module %></option>
+      <%= for module <- @modules do %>
+        <option value={module}><%= module %></option>
+      <% end %>
+    </select>
+  </form>
+
   <div class="my-6 mx-auto w-3/5 bg-purple-200 rounded h-16 flex justify-center">
     <p class="text-center text-slate-900 text-xl inline-flex items-center">
       <%= @message %>
