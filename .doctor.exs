@@ -9,7 +9,7 @@
     ExQuizItWeb.ErrorHelpers,
     ExQuizIt.DataCase,
     ExQuizItWeb.QuizLive,
-    ExQuizIt.Questions.Enums
+    ExQuizIt.QuizBuilder
   ],
   ignore_paths: [],
   min_module_doc_coverage: 100,

@@ -1,5 +1,9 @@
-defmodule ExQuizIt.Questions.Enums do
-  @moduledoc false
+defmodule ExQuizIt.QuizBuilder do
+  @moduledoc """
+  Pulls in docs for a given module and builds the questions and answers for the quiz
+  """
+
+  @spec q_and_a(module()) :: [%{String.t() => String.t()}]
   def q_and_a(module) do
     {:docs_v1, _, :elixir, _, _, _, functions} = Code.fetch_docs(module)
 
