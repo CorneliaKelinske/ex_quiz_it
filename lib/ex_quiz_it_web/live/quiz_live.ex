@@ -3,13 +3,13 @@ defmodule ExQuizItWeb.QuizLive do
   Main LiveView for the quiz
   """
   use Phoenix.LiveView, layout: {ExQuizItWeb.LayoutView, "live.html"}
-  alias ExQuizIt.Questions.Enums
+  alias ExQuizIt.QuizBuilder
 
   @modules [Enum, String, List]
 
   @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
-    questions = Enums.q_and_a(Enum)
+    questions = QuizBuilder.q_and_a(Enum)
     q_and_a = Enum.random(questions)
     modules = List.delete(@modules, Enum)
 
@@ -44,7 +44,7 @@ defmodule ExQuizItWeb.QuizLive do
   end
 
   def handle_event("select", %{"module" => module}, socket) do
-    questions = Enums.q_and_a(String.to_existing_atom(module))
+    questions = QuizBuilder.q_and_a(String.to_existing_atom(module))
     q_and_a = Enum.random(questions)
     modules = List.delete(@modules, module)
 
