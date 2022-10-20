@@ -9,7 +9,7 @@ defmodule ExQuizItWeb.QuizLive do
 
   @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
-    questions = Enums.q_and_a()
+    questions = Enums.q_and_a(Enum)
     q_and_a = Enum.random(questions)
     modules = List.delete(@modules, Enum)
 
@@ -30,15 +30,17 @@ defmodule ExQuizItWeb.QuizLive do
     {:noreply, assign(socket, display_answer: true)}
   end
 
-  def handle_event("next", _value, %{assigns: %{questions: questions}} = socket) do
-    q_and_a = Enum.random(questions)
+  def handle_event("next", _value, %{assigns: %{questions: questions, module: module}} = socket) do
+    IO.inspect(module, label: "module")
 
+    q_and_a = Enum.random(questions)
+    modules = List.delete(@modules, maybe_convert_module(module))
     {:noreply,
      assign(socket,
        question: Map.fetch!(q_and_a, "question"),
        answer: Map.fetch!(q_and_a, "answer"),
        display_answer: false,
-       modules: @modules
+       modules: modules
      )}
   end
 
@@ -57,4 +59,10 @@ defmodule ExQuizItWeb.QuizLive do
        module: module
      )}
   end
+
+  defp maybe_convert_module(module) when is_binary(module) do
+    String.to_atom(module)
+  end
+
+  defp maybe_convert_module(module), do: module
 end

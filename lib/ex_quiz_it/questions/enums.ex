@@ -1,6 +1,6 @@
 defmodule ExQuizIt.Questions.Enums do
   @moduledoc false
-  def q_and_a(module \\ Enum) do
+  def q_and_a(module) do
     {:docs_v1, _, :elixir, _, _, _, functions} = Code.fetch_docs(module)
 
     functions
