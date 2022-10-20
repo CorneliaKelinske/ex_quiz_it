@@ -31,10 +31,9 @@ defmodule ExQuizItWeb.QuizLive do
   end
 
   def handle_event("next", _value, %{assigns: %{questions: questions, module: module}} = socket) do
-    IO.inspect(module, label: "module")
-
     q_and_a = Enum.random(questions)
     modules = List.delete(@modules, maybe_convert_module(module))
+
     {:noreply,
      assign(socket,
        question: Map.fetch!(q_and_a, "question"),
