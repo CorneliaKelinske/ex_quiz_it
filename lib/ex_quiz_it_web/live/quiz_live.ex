@@ -21,7 +21,8 @@ defmodule ExQuizItWeb.QuizLive do
        display_answer: false,
        modules: modules,
        questions: questions,
-       module: Enum
+       module: Enum,
+       score: 0
      )}
   end
 
@@ -30,16 +31,22 @@ defmodule ExQuizItWeb.QuizLive do
     {:noreply, assign(socket, display_answer: true)}
   end
 
-  def handle_event("next", _value, %{assigns: %{questions: questions, module: module}} = socket) do
+  def handle_event(
+        "next",
+        %{"value" => value},
+        %{assigns: %{questions: questions, module: module, score: score}} = socket
+      ) do
     q_and_a = Enum.random(questions)
     modules = List.delete(@modules, maybe_convert_module(module))
+    score = maybe_update_score(value, score)
 
     {:noreply,
      assign(socket,
        question: Map.fetch!(q_and_a, "question"),
        answer: Map.fetch!(q_and_a, "answer"),
        display_answer: false,
-       modules: modules
+       modules: modules,
+       score: score
      )}
   end
 
@@ -64,4 +71,7 @@ defmodule ExQuizItWeb.QuizLive do
   end
 
   defp maybe_convert_module(module), do: module
+
+  defp maybe_update_score("yes", score), do: score + 1
+  defp maybe_update_score(_, score), do: score
 end
