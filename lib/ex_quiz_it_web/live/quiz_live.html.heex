@@ -29,12 +29,19 @@
         <%= @answer %>
       </p>
     </div>
+    <div class="mt-12 mb-6 mx-auto w-2/5 text-center bg-purple-50 rounded h-16 flex justify-center">
+      <p class="text-center text-purple-900 text-xl inline-flex items-center font-medium">Did you get it right?</p>
+    </div>
     <div class="mt-12 mx-auto w-2/5 md:w-1/5 text-center bg-purple-900 bg-opacity-80 hover:bg-purple-500 rounded-xl shadow-xl h-16 flex justify-center">
-      <button class="text-center text-slate-900 text-xl font-medium items-center" phx-click="next">Next question</button>
+      <button class="text-center text-slate-900 text-xl font-medium items-center" phx-click="next" value="yes">Yes</button>
+    </div>
+    <div class="mt-12 mx-auto w-2/5 md:w-1/5 text-center bg-purple-900 bg-opacity-80 hover:bg-purple-500 rounded-xl shadow-xl h-16 flex justify-center">
+      <button class="text-center text-slate-900 text-xl font-medium items-center" phx-click="next" value="no">No</button>
     </div>
   <% else %>
     <div class="mt-12 mx-auto w-2/5  md:w-1/5 text-center bg-purple-900 bg-opacity-80 hover:bg-purple-500 rounded-xl shadow-xl h-16 flex justify-center">
       <button class="text-center text-slate-900 text-xl font-medium items-center" phx-click="guess">Show answer</button>
     </div>
   <% end %>
+  <div class="w-screen text-purple-50 font-bold text-center text-4xl p-4 mt-8">Your Score: <%= @score %></div>
 </body>
