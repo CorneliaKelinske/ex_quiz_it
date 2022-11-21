@@ -71,7 +71,7 @@ defmodule ExQuizIt.MixProject do
       {:ex_check, "~> 0.14.0", only: :test, runtime: false},
       {:credo, "~> 1.5", only: :test, runtime: false},
       {:blitz_credo_checks, "~> 0.1.5", only: :test, runtime: false},
-      {:doctor, "~> 0.20.0", only: :test}
+      {:doctor, "~> 0.21.0", only: :test}
     ]
   end
 
