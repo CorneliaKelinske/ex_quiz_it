@@ -68,7 +68,7 @@ defmodule ExQuizIt.MixProject do
 
       # tooling
       {:dialyxir, "~> 1.1", only: :test, runtime: false},
-      {:ex_check, "~> 0.14.0", only: :test, runtime: false},
+      {:ex_check, "~> 0.15.0", only: :test, runtime: false},
       {:credo, "~> 1.5", only: :test, runtime: false},
       {:blitz_credo_checks, "~> 0.1.5", only: :test, runtime: false},
       {:doctor, "~> 0.21.0", only: :test}
