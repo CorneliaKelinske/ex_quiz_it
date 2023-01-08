@@ -9,7 +9,8 @@
     ExQuizItWeb.ErrorHelpers,
     ExQuizIt.DataCase,
     ExQuizItWeb.QuizLive,
-    ExQuizIt.QuizBuilder
+    ExQuizIt.QuizBuilder,
+    ExQuizItWeb.Button
   ],
   ignore_paths: [],
   min_module_doc_coverage: 100,

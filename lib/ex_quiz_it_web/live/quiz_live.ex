@@ -3,6 +3,7 @@ defmodule ExQuizItWeb.QuizLive do
   Main LiveView for the quiz
   """
   use Phoenix.LiveView, layout: {ExQuizItWeb.LayoutView, "live.html"}
+  import ExQuizItWeb.Button, only: [button: 1]
   alias ExQuizIt.QuizBuilder
 
   @modules [Enum, String, List]
